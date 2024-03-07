@@ -1,5 +1,30 @@
 --CREATE DATABASE cs_340_p1
 
+-- DROP TABLE user_checkin;
+-- DROP TABLE user_company_review;
+-- DROP TABLE company_transaction_checkin;
+-- DROP TABLE user_location_preference;
+-- DROP TABLE user_item_preference;
+-- DROP TABLE user_company_preference;
+-- DROP TABLE user_interests;
+-- DROP TABLE employee;
+-- DROP TABLE company_transaction;
+-- DROP TABLE discount;
+-- DROP TABLE company_item;
+-- DROP TABLE item;
+-- DROP TABLE company_location;
+-- DROP TABLE company;
+-- DROP TABLE "user";
+
+-- -- Data Cleaning Files
+-- DROP TABLE temp_users;
+-- DROP TABLE products;
+-- DROP TABLE services;
+
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+
 CREATE TYPE charge_type AS ENUM ('annual fee', 'checkin fees');
 CREATE TYPE discount_type AS ENUM ('freebie', 'percentage coupon', 'fixed coupon', 'other');
 CREATE TYPE item_type AS ENUM ('service', 'product');
