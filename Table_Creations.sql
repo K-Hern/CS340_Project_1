@@ -131,6 +131,7 @@ CREATE TABLE user_location_preference (
   REFERENCES "user"(user_id)
 );
 
+--Shouldnt this be a composite key?
 CREATE TABLE company_location (
   company_id INT,
   location_id INT NOT NULL,
