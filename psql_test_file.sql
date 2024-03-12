@@ -329,6 +329,28 @@ SELECT DISTINCT(product_id), product_name
 FROM products;
 
 
+  -- -- END TEST SECTION
 
+ -- -- BEGIN FINAL INDEX CREATION -- -- 
+
+CREATE INDEX user_checkin_dates_index ON user_checkin (checkin_date);
+
+CREATE INDEX user_interests_index ON user_interests USING HASH (interest);
+
+CREATE INDEX company_location_city_index ON company_location USING HASH (city);
+
+CREATE INDEX company_location_state_index ON company_location USING HASH (state);
+
+CREATE INDEX company_discounted_items_index ON company_item USING HASH (is_discounted);
+
+CREATE INDEX user_company_review_index ON user_company_review (rating_score);
+
+CREATE INDEX item_price_index ON item (item_price);
+
+CREATE INDEX discount_type_index ON discount USING HASH (discount_type);
+
+CREATE INDEX company_transaction_date_index ON company_transaction (transaction_date);
+
+CREATE INDEX company_transaction_charge_type_index ON company_transaction USING HASH (charge_type);
 
 
