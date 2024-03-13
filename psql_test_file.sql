@@ -41,6 +41,7 @@ CREATE TABLE employee (
   city VARCHAR(250),
   state VARCHAR(250),
   zip_code VARCHAR(250),
+  CONSTRAINT valid_zip CHECK (zip_code ~'^\d{5}(?:-\d{4})?$'),
   PRIMARY KEY (employee_id)
   );
 --No Ref
@@ -52,6 +53,7 @@ CREATE TABLE company (
   company_contact_phone_nbr VARCHAR(250),
   company_contact_email VARCHAR(250),
   url VARCHAR(250),
+  CONSTRAINT valid_url CHECK (url ~*'^https?://([a-zA-Z0-9]+(\.[a-zA-Z]{2,})+)(:\d{1,5})?(/[^\s]*)?$'),
   PRIMARY KEY (company_id)
   );
 --No Ref
@@ -68,6 +70,7 @@ CREATE TABLE "user"(
   city VARCHAR(250),
   state VARCHAR(250),
   zip_code VARCHAR(250),
+  CONSTRAINT valid_zip CHECK (zip_code ~'^\d{5}(?:-\d{4})?$'), 
   PRIMARY KEY (user_id)
  );
 --No Ref
@@ -139,6 +142,7 @@ CREATE TABLE company_location (
   city VARCHAR(250),
   state VARCHAR(250),
   zip_code VARCHAR(250),
+  CONSTRAINT valid_zip CHECK (zip_code ~'^\d{5}(?:-\d{4})?$'),
   phone_nbr VARCHAR(250),
   PRIMARY KEY (location_id),
   FOREIGN KEY (company_id)
