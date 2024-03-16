@@ -27,6 +27,6 @@ brand_company_name TEXT,
 product_category TEXT
 );
 
--- \i YOUR_PATH_TO_Data_cleaning_HERE
+-- \i YOUR_PATH_TO_Data_cleaning.sql_HERE
 
 

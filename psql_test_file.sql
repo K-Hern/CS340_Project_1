@@ -224,7 +224,6 @@ REFERENCES item(item_id)
 );
 
 
- 
 ----- Temp_data_tables
 
 -- DROP TABLE temp_user;
@@ -299,7 +298,7 @@ EXECUTE PROCEDURE archive_item();
 \copy products from '/Users/kevinhernandezschool/Desktop/CS_340/Project_1/CS340_Project_1/files/products.csv' delimiter '|' CSV HEADER;
 
 
--- -- Deleting non-valid email addresses 
+-- -- Deleting all entries w/ non-valid email addresses 
 DELETE FROM temp_user WHERE NOT email ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$';
 
 -- Title case all fields 
@@ -349,29 +348,19 @@ INSERT INTO item (item_id, item_name)
 SELECT DISTINCT(product_id), product_name
 FROM products;
 
-
   -- -- END TEST SECTION
 
  -- -- BEGIN FINAL INDEX CREATION -- -- 
 
 CREATE INDEX user_checkin_dates_index ON user_checkin (checkin_date);
-
 CREATE INDEX user_interests_index ON user_interests USING HASH (interest);
-
 CREATE INDEX company_location_city_index ON company_location USING HASH (city);
-
 CREATE INDEX company_location_state_index ON company_location USING HASH (state);
-
 CREATE INDEX company_discounted_items_index ON company_item USING HASH (is_discounted);
-
 CREATE INDEX user_company_review_index ON user_company_review (rating_score);
-
 CREATE INDEX item_price_index ON item (item_price);
-
 CREATE INDEX discount_type_index ON discount USING HASH (discount_type);
-
 CREATE INDEX company_transaction_date_index ON company_transaction (transaction_date);
-
 CREATE INDEX company_transaction_charge_type_index ON company_transaction USING HASH (charge_type);
 
 

@@ -34,4 +34,4 @@ INSERT INTO item (item_id, item_name)
 SELECT DISTINCT(product_id), product_name
 FROM products;
 
--- \i PATH_TO_p1_views_HERE
+-- \i YOUR_PATH_TO_p1_views_.sql_HERE

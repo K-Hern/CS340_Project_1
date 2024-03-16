@@ -21,6 +21,10 @@
 -- DROP TABLE products;
 -- DROP TABLE services;
 
+-- This just here to clear any previous runs
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
 CREATE TYPE charge_type AS ENUM ('annual fee', 'checkin fees');
 CREATE TYPE discount_type AS ENUM ('freebie', 'percentage coupon', 'fixed coupon', 'other');
 CREATE TYPE item_type AS ENUM ('service', 'product');
@@ -215,7 +219,7 @@ REFERENCES item(item_id)
 CREATE OR REPLACE FUNCTION archive_item() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-
+    -- Checking to see which attr was updated (if it differs from the old value)
     CASE
       WHEN old.item_type <> new.item_type THEN
           INSERT INTO item_archive(item_primary_key, attr_name, old_value, new_value, update_stamp)
@@ -258,3 +262,5 @@ CREATE INDEX item_price_index ON item (item_price);
 CREATE INDEX discount_type_index ON discount USING HASH (discount_type);
 CREATE INDEX company_transaction_date_index ON company_transaction (transaction_date);
 CREATE INDEX company_transaction_charge_type_index ON company_transaction USING HASH (charge_type);
+
+-- \i YOUR_PATH_TO_Temp_data_tables.sql_HERE
