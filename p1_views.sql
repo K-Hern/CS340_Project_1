@@ -52,7 +52,7 @@ CREATE VIEW sorted_product_list AS
 
 --  -- -- -- -- -- -- V2 Views -- -- -- -- -- -- 
 
---  -- -- -- -- -- -- -- -- -- -- -- -- END DUMMY DATA INSERTION  -- -- -- -- -- -- -- -- -- -- -- -- 
+--  -- -- -- -- -- -- -- -- -- -- -- -- BEGIN DUMMY DATA INSERTION  -- -- -- -- -- -- -- -- -- -- -- -- 
 --  -- NOTE - The insertion code in this section was authored by online tools
 --  -- -- -- This data is intended to test the discount_history view only -- -- -- -- -- -- 
 -- INSERT INTO discount (discount_id, discount_type, discount_amount, discount_description, discount_start_date, discount_end_date)
